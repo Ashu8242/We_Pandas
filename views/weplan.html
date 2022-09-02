@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WePandas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/font.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+
+    <link rel="stylesheet" href="../styles/weplan.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <nav class="nav">
+          <a href="/" class="logo">
+            <h1 class="logo-title">
+              We<span class="accent-text">Pandas</span>
+            </h1>
+          </a>
+          <ul class="nav__links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./wethink.html">WeThink</a></li>
+            <li><a class="active-link" href="./weplan.html">WePlan</a></li>
+            <li><a href="#">WeBuild</a></li>
+            <li><a class="inactive-link" href="#">WeHold</a></li>
+          </ul>
+          <div class="nav__social">
+            <ul class="links">
+              <li>
+                <a href="#"
+                  ><img src="../assets/images/twitter.svg" alt="twitter icon"
+                /></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="../assets/images/instagram.svg"
+                    alt="instagram icon"
+                /></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><img src="../assets/images/discord.svg" alt="discord icon"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <section class="weplan-section">
+        <article class="weplan-article hide-article flex">
+          <div class="close-icon">
+            <img src="../assets/images/weplan-images/close-icon.svg" alt="" />
+          </div>
+          <div class="weplan-article--left">
+            <h1 class="weplan-title">WePlan</h1>
+            <span id="weplan-title-select"></span>
+            <div class="weplan-description">
+              <div class="weplan-info">
+                <h2 class="weplan-subtitle">
+                  Lo-Fi Music/Mix-Tapes on Spotify
+                </h2>
+                <p class="info">
+                  An NFT marketplace built in partnership with Magic Eden,
+                  Solana's #1 marketplace, where Okay Bears holders will buy and
+                  sell Okay Bears with member-only perks.
+                </p>
+              </div>
+              <div class="weplan-info">
+                Digital Wallpapers for PC, MAC, Android, IOS
+                <h2 class="weplan-subtitle"></h2>
+                <p class="info">
+                  Holder-only access to exclusive merch through seamless
+                  integration of Web 3 and Shopify's robust e-commerce platform.
+                </p>
+              </div>
+              <div class="weplan-info">
+                WeStore
+                <h2 class="weplan-subtitle"></h2>
+                <p class="info">
+                  Real-life activations through flash pop-up stores in cities
+                  worldwide and leading tech and crypto conferences bring
+                  holders together for memorable brand experiences.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="weplan-article--right">
+            <!-- <img src="../assets/images/weplan-images/CANVAS 1.png" alt="" /> -->
+          </div>
+        </article>
+        <div class="flex">
+          <h2 class="weplan-section__title">A Brand</h2>
+          <div class="img-wrapper">
+            <div id="weplan-text" class="img-text">
+              <p class="text-1 expansion">Expansion</p>
+              <p class="text-2 art">Art</p>
+              <p class="text-3 innovation">Innovation</p>
+              <p class="text-4 lifestyle">Lifestyle</p>
+              <p class="text-5 community">Community</p>
+            </div>
+            <img src="../assets/images/weplan-min.png" alt="wepanda" />
+          </div>
+          <h2 class="weplan-section__title">that builds.</h2>
+        </div>
+      </section>
+    </main>
+    <script>
+      const close = document.querySelector(".close-icon");
+      const cardArticle = document.querySelector(".weplan-article");
+
+      // close card
+      close.addEventListener("click", () => {
+        cardArticle.classList.toggle("hide-article");
+
+        const selectedText = document.querySelectorAll("#weplan-title-select");
+
+        console.log(selectedText[1]);
+        selectedText[1].classList.toggle("animateText");
+        selectedText[1].setAttribute("id", "");
+      });
+
+      // click animation
+      const wePlan = document.querySelectorAll(".img-text p");
+
+      // trigger event onclick
+      wePlan.forEach((elem) => {
+        elem.addEventListener("click", () => {
+          elem.classList.toggle("animateText");
+          elem.setAttribute("id", "weplan-title-select");
+          cardArticle.classList.toggle("hide-article");
+
+          // dynamically setting backround property for specific text
+
+          const bgImg = document.querySelector(".weplan-article--right");
+          const text = String(elem.classList[1]);
+
+          const imgUrl = "../assets/images/weplan-images/";
+          switch (text) {
+            case "expansion":
+              bgImg.id = `bg-${text}`;
+              break;
+            case "art":
+              bgImg.id = `bg-${text}`;
+              break;
+            case "innovation":
+              bgImg.id = `bg-${text}`;
+              break;
+            case "lifestyle":
+              bgImg.id = `bg-${text}`;
+              break;
+            case "community":
+              bgImg.id = `bg-${text}`;
+              break;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
