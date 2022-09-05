@@ -212,11 +212,16 @@ h4 {
   letter-spacing: 0;
 }
 #build{
-  position: absolute;
-  width: 540px;
+  position: relative;
+  /* width: 540px;
   height: 51px;
-  left: 595px;
-  top: 458px;
+
+  left: 498px;
+  top: 405px;  */
+  /* margin-top: -20px; */
+  margin-top: -32px;
+    margin-left: 17px;
+
   
   font-family: 'Helvetica Now Display';
   font-style: normal;
@@ -427,7 +432,8 @@ border-radius: 10px;
   font-weight: 400;
   font-family: var(--ff-body);
   font-size: var(--fs-medium-1);
-  margin-left: 17px;
+  margin-left: 37px;
+  margin-top: 12px;
   color: var(--bg-clr);
   opacity: 1;
   pointer-events: none;
